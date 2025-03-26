@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Market Connect</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="banner">
+            <h1>Welcome to Agri-Market Connect!</h1>
+            <p>Empowering farmers, connecting buyers!</p>
+            <a href="#get-started" class="cta-button">Get Started</a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="left-content">
+            <section class="produce-list">
+                <h2>Available Produce</h2>
+                <div class="produce-item">
+                    <h3>🍅 Tomatoes</h3>
+                    <p>Price: KES 100/kg</p>
+                    <p>Quantity: 50 kg</p>
+                </div>
+
+                <div class="produce-item">
+                    <h3>🌽 Maize</h3>
+                    <p>Price: KES 50/kg</p>
+                    <p>Quantity: 100 kg</p>
+                </div>
+
+                <div class="produce-item">
+                    <h3>🥔 Potatoes</h3>
+                    <p>Price: KES 70/kg</p>
+                    <p>Quantity: 30 kg</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="add-produce">
+            <h2>Add New Produce</h2>
+            <form id="produce-form">
+                <input type="text" id="produce-name" placeholder="Produce Name" required>
+                <input type="number" id="price" placeholder="Price (KES/kg)" min="1" required>
+                <input type="number" id="quantity" placeholder="Quantity (kg)" min="1" required>
+                <input type="date" id="harvest-date" required>
+                <button type="submit" class="add-button">Add Produce</button>
+                <p id="success-message" class="hidden">✅ Produce added successfully!</p>
+            </form>
+        </section>
+
+        <section class="weather-section">
+            <div class="weather-card">
+                <div class="weather-icon">🌦️</div>
+                <h3>Weather Update</h3>
+                <p><strong>Temperature:</strong> <span id="temperature">25°C</span></p>
+                <p><strong>Wind Speed:</strong> <span id="wind-speed">15 km/h</span></p>
+                <p><strong>Forecast:</strong> <span id="forecast">Partly Cloudy</span></p>
+            </div>
+        </section>
+
+        <section class="market-price-tracker">
+            <h2>Market Price Tracker</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produce</th>
+                        <th>Price (KES)</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maize</td>
+                        <td>50/kg</td>
+                        <td class="trend-up">⬆</td>
+                    </tr>
+                    <tr>
+                        <td>Beans</td>
+                        <td>80/kg</td>
+                        <td class="trend-down">⬇</td>
+                    </tr>
+                    <tr>
+                        <td>Tomatoes</td>
+                        <td>100/kg</td>
+                        <td class="trend-up">⬆</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="farmer-dashboard">
+            <h2>Farmer Dashboard</h2>
+
+            <div class="produce-card">
+                <h3>🍅 Tomatoes</h3>
+                <p>Price: KES 100/kg</p>
+                <p>Quantity: 50 kg</p>
+                <div class="card-buttons">
+                    <button class="edit-btn" onclick="handleEdit('Tomatoes')">Edit</button>
+                    <button class="delete-btn" onclick="handleDelete('Tomatoes')">Delete</button>
+                </div>
+            </div>
+
+            <div class="produce-card">
+                <h3>🌽 Maize</h3>
+                <p>Price: KES 50/kg</p>
+                <p>Quantity: 100 kg</p>
+                <div class="card-buttons">
+                    <button class="edit-btn" onclick="handleEdit('Maize')">Edit</button>
+                    <button class="delete-btn" onclick="handleDelete('Maize')">Delete</button>
+                </div>
+            </div>
+
+            <div id="success-message" class="hidden">
+                Produce updated successfully!
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; Agri-Market Connect</p>
+        </footer>
+
+        <img src="/banner-image.jpg" alt="Welcome Banner">
+        <script src="/app.js"></script>
+        <a href="/produce">View Produce Listings</a>
+</body>
+
+</html>
