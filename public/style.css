@@ -10,50 +10,63 @@ body {
     line-height: 1.6;
 }
 
+/* Header Section Enhancements */
 header {
-    background-image: url('images/farm-background.jpg');
+    background-image: url('/images/farm-background.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    /* Enables Parallax Effect */
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 
 header .banner {
     background: rgba(0, 0, 0, 0.7);
     padding: 40px;
     border-radius: 15px;
-    width: 90%;
-    max-width: 600px;
+    animation: fadeIn 1.5s ease-in-out;
+    /* Smooth fade-in animation */
 }
 
-h1 {
-    font-size: 3.5rem;
-    margin: 0;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
+/* Glowing Hover Effect for CTA Button */
 .cta-button {
     background-color: #4CAF50;
     color: #fff;
     padding: 12px 24px;
     text-decoration: none;
-    border-radius: 25px;
-    transition: background 0.3s ease;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+    transition: all 0.3s ease-in-out;
 }
 
 .cta-button:hover {
     background-color: #45a049;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 1);
+    /* Glow effect intensifies */
     transform: scale(1.05);
+    /* Slight zoom-in */
 }
-
 .intro {
     text-align: center;
     padding: 40px;
