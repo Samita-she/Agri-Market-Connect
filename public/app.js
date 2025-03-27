@@ -79,24 +79,50 @@ async function handleDelete(id) {
 }
 
 // 🌤️ Render Weather Data
-async function renderWeatherData() {
-    const weatherAlert = document.getElementById("weather-alert");
-
+async function fetchWeatherData() {
     try {
-        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-1.286389&longitude=36.817223&current_weather=true');
-        if (!response.ok) throw new Error("Failed to fetch weather data");
-
+        const response = await fetch('https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=Nairobi');
         const data = await response.json();
 
-        weatherAlert.innerHTML = `
-            <h3>🌤️ Weather Update</h3>
-            <p><strong>Temperature:</strong> ${data.current_weather.temperature}°C</p>
-            <p><strong>Wind Speed:</strong> ${data.current_weather.windspeed} km/h</p>
-        `;
+        renderWeatherData(data.current || {});
     } catch (error) {
-        console.error('Error fetching weather data:', error);
-        weatherAlert.innerHTML = `<p class="error">Weather data currently unavailable. Please check back later.</p>`;
+        console.error("Error fetching weather data:", error);
+        renderWeatherData(null); // Handle missing data gracefully
     }
+}
+
+async function fetchWeatherData() {
+    try {
+        const response = await fetch('https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=Nairobi');
+        const data = await response.json();
+
+        renderWeatherData(data.current || {});
+    } catch (error) {
+        console.error("Error fetching weather data:", error);
+        renderWeatherData(null);
+    }
+}
+//Render weather data
+function renderWeatherData(weatherData) {
+    const weatherinfo = document.getElementById('weather-info');
+
+    if (!weatherinfo) {
+        console.error("Element with ID 'weather-info' not found.");
+        return;
+    }
+
+    if (!weatherinfo) {
+        weatherinfo.innerHTML = `<p>No weather data available.</p>`;
+    } else {
+        weatherinfo.innerHTML = `
+                <h3>Weather in Nairobi</h3>
+                <p>Temperature: ${weatherData.temp_c}°C</p>
+                <p>Condition: ${weatherData.condition.text}</p>
+            `;
+    }
+
+
+fetchWeatherData(); 
 }
 
 // ➕ Add New Produce Entry

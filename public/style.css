@@ -150,29 +150,52 @@ header .banner {
     background-color: #45a049;
 }
 
+/* === Weather Section Enhancements === */
 .weather-card {
-    background-color: #e0f7fa;
+    background: linear-gradient(135deg, #4CAF50, #1b5e20);
     border: 3px solid #4CAF50;
     border-radius: 15px;
     padding: 20px;
     width: 300px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #fff;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+    animation: slideIn 1s ease-in-out;
 }
 
-.weather-card:hover {
-    transform: scale(1.05);
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .weather-icon {
-    font-size: 50px;
-    margin-bottom: 10px;
+    font-size: 60px;
+    animation: spin 3s linear infinite;
 }
 
-.weather-card h3 {
-    color: #4CAF50;
-    margin-bottom: 10px;
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.weather-temp {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #4CAF50, #76FF03);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .market-price-tracker table {
