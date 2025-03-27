@@ -110,10 +110,6 @@ This project is licensed under the **MIT License**.
 💻 **GitHub:** [Samita-she](https://github.com/Samita-she)
 
 ---
-
-## Acknowledgments
-Special thanks to **Moringa School** for guiding me through this project.
-
 ---
 
 ## Future Enhancements

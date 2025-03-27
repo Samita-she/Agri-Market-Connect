@@ -38,6 +38,15 @@ app.get('/produce', (req, res) => {
 const cors = require('cors'); // Import CORS
 
 app.use(cors()); // Enable CORS for all routes
+app.put('/produce/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedData = req.body;
+
+    // Find and update produce item logic here
+    res.json({ message: `Produce with ID ${id} updated successfully!` });
+});
+
+
 
 
 

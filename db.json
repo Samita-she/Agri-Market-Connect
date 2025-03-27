@@ -1,0 +1,22 @@
+{
+    "produce": [
+        {
+            "id": 1,
+            "name": "Tomatoes",
+            "price": 100,
+            "quantity": 50
+        },
+        {
+            "id": 2,
+            "name": "Maize",
+            "price": 50,
+            "quantity": 100
+        },
+        {
+            "id": 3,
+            "name": "Potatoes",
+            "price": 70,
+            "quantity": 30
+        }
+    ]
+}

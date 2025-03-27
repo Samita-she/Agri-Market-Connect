@@ -115,3 +115,53 @@ function renderProduceList() {
 
 // Run the function when the DOM loads
 document.addEventListener('DOMContentLoaded', renderProduceList);
+
+//Added a delete and edit button
+document.addEventListener('DOMContentLoaded', () => {
+    const table = document.getElementById('produce-table');
+
+    // Edit button logic
+    table.addEventListener('click', (event) => {
+        if (event.target.classList.contains('edit-btn')) {
+            const id = event.target.getAttribute('data-id');
+            handleEdit(id);
+        }
+
+        // Delete button logic
+        if (event.target.classList.contains('delete-btn')) {
+            const id = event.target.getAttribute('data-id');
+            handleDelete(id);
+        }
+    });
+
+    // Sample Edit Function
+    function handleEdit(id) {
+        const newName = prompt('Enter new produce name:');
+        if (newName) {
+            fetch(`/produce/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: newName })
+            })
+                .then(response => response.json())
+                .then(updatedProduce => {
+                    alert('Produce updated successfully!');
+                    location.reload(); // Refresh to show updated data
+                })
+                .catch(error => console.error('Error updating produce:', error));
+        }
+    }
+
+    // Sample Delete Function
+    function handleDelete(id) {
+        if (confirm('Are you sure you want to delete this produce?')) {
+            fetch(`/produce/${id}`, { method: 'DELETE' })
+                .then(() => {
+                    alert('Produce deleted successfully!');
+                    location.reload();
+                })
+                .catch(error => console.error('Error deleting produce:', error));
+        }
+    }
+});
+
