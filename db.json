@@ -3,18 +3,20 @@
         {
             "id": 1,
             "name": "Tomatoes",
+            "category": "Vegetables",
             "price": 100,
             "quantity": 50
         },
         {
             "id": 2,
             "name": "Maize",
-            "price": 50,
+            "category": "Cereals",
             "quantity": 100
         },
         {
             "id": 3,
             "name": "Potatoes",
+            "category":"Vegetables",
             "price": 70,
             "quantity": 30
         }
