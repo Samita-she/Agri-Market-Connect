@@ -1,15 +1,15 @@
 {
   "name": "agrimarketconnect",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
+  "description": "Agri-Market Connect platform",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "json-server --watch db.json --port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "![Agri-Market Connect Banner](images/banner.png)",
   "dependencies": {
     "axios": "^1.8.4",
     "cors": "^2.8.5",

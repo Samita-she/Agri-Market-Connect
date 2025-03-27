@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agri-Market Connect</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="<%= '/style.css' %>">
 </head>
 
 <body>
@@ -44,14 +44,15 @@
 
         <section class="add-produce">
             <h2>Add New Produce</h2>
-            <form id="produce-form">
+            <form id="add-produce-form">
                 <input type="text" id="produce-name" placeholder="Produce Name" required>
-                <input type="number" id="price" placeholder="Price (KES/kg)" min="1" required>
-                <input type="number" id="quantity" placeholder="Quantity (kg)" min="1" required>
-                <input type="date" id="harvest-date" required>
-                <button type="submit" class="add-button">Add Produce</button>
-                <p id="success-message" class="hidden">✅ Produce added successfully!</p>
+                <input type="text" id="produce-category" placeholder="Category" required>
+                <input type="number" id="produce-price" placeholder="Price (KES)" required>
+                <input type="number" id="produce-quantity" placeholder="Quantity (kg)" required>
+                <button type="submit">Add Produce</button>
             </form>
+
+            <div id="produce-list"></div>
         </section>
 
         <section class="weather-section">
@@ -126,9 +127,10 @@
             <p>&copy; Agri-Market Connect</p>
         </footer>
 
-        <img src="/banner-image.jpg" alt="Welcome Banner">
-        <script src="/app.js"></script>
-        <a href="/produce">View Produce Listings</a>
+        <img src="<%= '/banner-image.jpg' %>" alt="Welcome Banner">
+        <script src="<%= '/app.js' %>"></script>
+        <a href="<%= '/produce' %>">View Produce Listings</a>
+    </div>
 </body>
 
 </html>

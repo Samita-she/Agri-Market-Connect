@@ -1,54 +1,57 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
+
 const app = express();
 const PORT = 3000;
+
+// Middleware
+app.use(express.json()); // Important for parsing JSON data
+app.use(cors()); // Enable CORS for all routes
+app.use(express.static('public')); // Serves static files from 'public' folder
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files from the 'public' folder
-app.use(express.static('public'));
-
-// Render index.ejs on the root route
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
-});
-
-
+// Cache-Control Headers (Ensure updated content is served)
 app.use((req, res, next) => {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
     next();
 });
-app.get('/produce', (req, res) => {
-    const produceData = [
-        { name: 'Tomatoes', price: 'KES 100/kg', quantity: '50 kg', harvestDate: '25th March 2025' },
-        { name: 'Maize', price: 'KES 50/kg', quantity: '100 kg', harvestDate: '1st April 2025' }
-    ];
-    res.json(produceData);  // Return JSON data
+
+// Root Route
+app.get('/', (req, res) => {
+    res.render('index');
 });
 
-const cors = require('cors'); // Import CORS
+// Produce Data Route
+const produceData = [
+    { id: 1, name: 'Tomatoes', price: 'KES 100/kg', quantity: '50 kg', harvestDate: '25th March 2025' },
+    { id: 2, name: 'Maize', price: 'KES 50/kg', quantity: '100 kg', harvestDate: '1st April 2025' }
+];
 
-app.use(cors()); // Enable CORS for all routes
+app.get('/produce', (req, res) => {
+    res.json(produceData);
+});
+
+// PUT Route for Updating Produce
 app.put('/produce/:id', (req, res) => {
     const { id } = req.params;
     const updatedData = req.body;
 
-    // Find and update produce item logic here
-    res.json({ message: `Produce with ID ${id} updated successfully!` });
+    const produceIndex = produceData.findIndex(item => item.id === Number(id));
+    if (produceIndex !== -1) {
+        produceData[produceIndex] = { ...produceData[produceIndex], ...updatedData };
+        res.json({ message: `Produce with ID ${id} updated successfully!`, updatedData });
+    } else {
+        res.status(404).json({ error: `Produce with ID ${id} not found.` });
+    }
 });
 
-
-
-
-
-
-
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
