@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: burlywood;
+    background-color: #f3f4f6;
     color: #333;
+    line-height: 1.6;
 }
 
 header {
-    background-image: url('banner-image.jpg');
+    background-image: url('images/farm-background.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -20,13 +23,15 @@ header {
 }
 
 header .banner {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     padding: 40px;
     border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 0;
 }
 
@@ -38,11 +43,15 @@ p {
 .cta-button {
     background-color: #4CAF50;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
-    display: inline-block;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
 .intro {
@@ -51,42 +60,43 @@ p {
 }
 
 .produce-section {
-    background-color: #f5f5dc;
+    background-color: #ffffff;
     padding: 30px;
     border: 2px solid #4CAF50;
-    border-radius: 10px;
-    max-width: 400px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-details {
-    background-color: #ffffff;
-    border: 1px solid #4CAF50;
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-summary {
-    font-weight: bold;
-    color: #4CAF50;
-    padding: 5px;
-    font-size: 1.2rem;
+    border-radius: 12px;
+    max-width: 450px;
+    margin: 20px auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .produce-list {
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
 }
 
 .produce-item {
-    background-color: black;
-    border: 1px solid #4CAF50;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
     border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
 }
+
+.produce-item:hover {
+    transform: translateY(-5px);
+    background-color: #45a049;
+}
+
 .add-produce {
-    background-color: black;
+    background-color: lightgray;
     border: 2px solid #4CAF50;
     border-radius: 10px;
     padding: 30px;
@@ -96,23 +106,20 @@ summary {
     text-align: center;
 }
 
-.add-produce h2 {
-    margin-bottom: 15px;
-    color: #4CAF50;
-}
-
-#produce-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#produce-form input {
+#produce-form input,
+#produce-form textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+#produce-form input:focus,
+#produce-form textarea:focus {
+    border-color: #45a049;
+    outline: none;
 }
 
 .add-button {
@@ -120,8 +127,9 @@ summary {
     color: #fff;
     border: none;
     padding: 12px;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    width: 100%;
     transition: background 0.3s ease;
 }
 
@@ -129,24 +137,8 @@ summary {
     background-color: #45a049;
 }
 
-.hidden {
-    display: none;
-}
-
-#success-message {
-    margin-top: 15px;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-.weather-section {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
 .weather-card {
-    background-color: lightblue;
+    background-color: #e0f7fa;
     border: 3px solid #4CAF50;
     border-radius: 15px;
     padding: 20px;
@@ -170,44 +162,34 @@ summary {
     margin-bottom: 10px;
 }
 
-.weather-card p {
-    margin: 5px 0;
-    font-weight: bold;
-}
-
-.market-price-tracker {
-    margin: 40px 0;
-    text-align: center;
-}
-
-table {
+.market-price-tracker table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-    background-color: black;
+    margin-top: 20px;
+    background-color: #222;
+    color: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 th,
 td {
-    border: 1px solid #ddd;
+    border: 1px solid #4CAF50;
     padding: 12px;
     text-align: center;
 }
 
 th {
     background-color: #4CAF50;
-    color: white;
+    color: #fff;
 }
 
 td {
-    background-color: black;
+    background-color: #333;
 }
 
 .trend-up {
-    color: green;
+    color: limegreen;
     font-weight: bold;
 }
 
@@ -216,142 +198,9 @@ td {
     font-weight: bold;
 }
 
-.farmer-dashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Centers content horizontally */
+footer {
     text-align: center;
-    /* Ensures text within is also centered */
-    margin: 40px 0;
-}
-
-.produce-list {
-    display: flex;
-    flex-direction: column;
-    /* Stack items vertically */
-    align-items: center;
-    /* Centers each item */
-    gap: 20px;
-    /* Adds spacing between items */
-}
-
-.produce-card {
-    background-color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
     padding: 20px;
-    width: 100%;
-    /* Ensure cards take a reasonable width */
-    max-width: 400px;
-    /* Limits the card width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.card-buttons {
-    margin-top: 15px;
-}
-
-button {
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 5px;
-    font-weight: bold;
-}
-
-.edit-btn {
     background-color: #4CAF50;
     color: #fff;
-}
-
-.delete-btn {
-    background-color: #f44336;
-    color: #fff;
-}
-
-#success-message {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 5px;
-}
-
-.hidden {
-    display: none;
-}
-
-header {
-    background-image: url('/images/farm-background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    /* Full viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    /* Ensure text is visible */
-}
-
-.produce-list {
-    display: flex;
-    flex-direction: column;
-    /* Stack items vertically */
-    align-items: center;
-    /* Centers each item */
-    gap: 20px;
-    /* Adds spacing between items */
-}
-
-.produce-card {
-    background-color: darkgreen;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    padding: 20px;
-    width: 100%;
-    /* Ensure cards take a reasonable width */
-    max-width: 400px;
-    /* Limits the card width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-#produce-list li {
-    background-color: lightgreen;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-/*added an image on the right*/
-
-
-@media (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-    }
-
-    .info-image {
-        width: 80%;
-    }
-}
-body {
-    background-image: url('https://i.pinimg.com/736x/ae/9a/74/ae9a74c97f2163234ad7ae898504f5e4.jpg');
-    background-size: cover;
-    /* Ensures the image covers the entire background */
-    background-position: center;
-    /* Centers the image */
-    background-repeat: no-repeat;
-    /* Prevents the image from repeating */
-    background-attachment: fixed;
-    /* Keeps the background fixed while scrolling */
-    color: #fff;
-    /* Ensures text remains readable */
-}
-
-.main-content {
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Adds a semi-transparent layer for readability */
-    padding: 20px;
-    border-radius: 12px;
 }
