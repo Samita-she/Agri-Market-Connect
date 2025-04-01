@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-
+const PORT = process.env.PORT || 3000;
 const app = express();
-const PORT = 3000;
+
 
 // Middleware
 app.use(express.json()); // Important for parsing JSON data
@@ -25,6 +25,9 @@ app.use((req, res, next) => {
 // Root Route
 app.get('/', (req, res) => {
     res.render('index');
+    app.get('/about', (req, res) => res.render('about'));
+    app.get('/weather', (req, res) => res.render('weather'));
+
 });
 
 // Produce Data Route

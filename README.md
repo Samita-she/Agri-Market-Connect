@@ -1,5 +1,4 @@
 # Agri-Market-Connect
-# Agri-Market Connect
 
 ![Agri-Market Connect Banner](images/banner.png)
 

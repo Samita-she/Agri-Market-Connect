@@ -11,6 +11,19 @@
 
 <body>
     <header>
+        <nav>
+            <div class="logo">Agri-Market Connect</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#produce-listings">Produce Listings</a></li>
+                <li><a href="#market-prices">Market Prices</a></li>
+                <li><a href="#weather-alerts">Weather Alerts</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <header>
         <div class="banner">
             <h1>Welcome to Agri-Market Connect!</h1>
             <p>Empowering farmers, connecting buyers!</p>
@@ -63,7 +76,6 @@
                 <p><strong>Wind Speed:</strong> <span id="wind-speed">15 km/h</span></p>
                 <p><strong>Forecast:</strong> <span id="forecast">Partly Cloudy</span></p>
             </div>
-           
 
         </section>
 
@@ -124,15 +136,37 @@
                 Produce updated successfully!
             </div>
         </section>
-
-        <footer>
-            <p>&copy; Agri-Market Connect</p>
-        </footer>
-
         <img src="<%= '/banner-image.jpg' %>" alt="Welcome Banner">
         <script src="<%= '/app.js' %>"></script>
         <a href="<%= '/produce' %>">View Produce Listings</a>
     </div>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us!</p>
+    
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+    
+            <button type="submit">Send Message</button>
+        </form>
+    
+        <div class="contact-info">
+            <p>Email: <a href="mailto:samitasheila1@gmail.com">samitasheila1@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/sheila-samita-676362241" target="_blank">Sheila Samita</a></p>
+            <p>GitHub: <a href="https://github.com/Samita-she" target="_blank">Samita-she</a></p>
+        </div>
+    </section>
+
+<footer>
+    <p>&copy; Agri-Market Connect</p>
+</footer>
 </body>
 
 </html>
